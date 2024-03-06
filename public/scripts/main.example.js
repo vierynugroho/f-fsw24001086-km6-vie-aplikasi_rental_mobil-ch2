@@ -28,7 +28,7 @@ btn_submit.addEventListener('click', () => {
 	filter_dateTime = new Date(`${date} ${pick_up_time}`);
 
 	//! Validation empty input
-	if (date == '' && pick_up_time == '' && total_passenger == '') {
+	if ((date == '' && pick_up_time == '') || total_passenger == '') {
 		const app = new App();
 		app.init().then(app.run);
 		return;
