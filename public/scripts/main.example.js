@@ -21,25 +21,39 @@ let btn_submit = document.getElementById('btnCariMobil');
 btn_submit.addEventListener('click', () => {
 	// filter data
 	let driver_type = document.getElementById('driverType').value;
-	let date = document.getElementById('date').value;
-	let pick_up_time = document.getElementById('pickUpTime').value;
+	let date = document.getElementById('date').value; // 2024 - 03 - 13;
+	let pick_up_time = document.getElementById('pickUpTime').value; // 00:00 (default)
 	let total_passenger = document.getElementById('totalPassenger').value;
+
+	filter_dateTime = new Date(`${date} ${pick_up_time}`);
 
 	//! Validation empty input
 	if (date == '' && pick_up_time == '' && total_passenger == '') {
 		const app = new App();
-		app.clear();
 		app.init().then(app.run);
 		return;
 	}
 
+	console.log('input date: ' + filter_dateTime);
 	//! validation type driver
 	// if (driver_type === undefined || driver_type == '') {
 	// 	alert('Silahkan Pilih Tipe Driver');
 	// 	return;
 	// }
 
-	let filteredCars = (car) => car.capacity == total_passenger;
+	//! Validation Filter
+	let filteredCars;
+	if (total_passenger == '' || total_passenger == null) {
+		filteredCars = (car) => car.availableAt <= filter_dateTime && car.available === true;
+	} else {
+		filteredCars = (car) => car.capacity >= total_passenger && car.available === true;
+	}
+
+	//! Log Hasil
+	console.log('Driver Type: ' + driver_type);
+	console.log('Tanggal: ' + date);
+	console.log('Waktu Ambil: ' + pick_up_time);
+	console.log('Jumlah Penumpang: ' + total_passenger);
 
 	async function getCarsFiltered() {
 		const data = await Binar.listCars(filteredCars);
@@ -50,7 +64,6 @@ btn_submit.addEventListener('click', () => {
 		console.log(carsFiltered);
 		const app = new App();
 		Car.init(carsFiltered);
-		app.clear();
 		app.run();
 	});
 });

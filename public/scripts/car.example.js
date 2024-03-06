@@ -2,7 +2,6 @@ class Car {
 	static list = [];
 
 	static init(cars) {
-		console.log(cars);
 		this.list = cars.map((i) => new this(i));
 	}
 
@@ -24,13 +23,27 @@ class Car {
 		this.availableAt = availableAt;
 	}
 
+	formatRupiah = (angka) => {
+		let number_string = angka.toString(),
+			sisa = number_string.length % 3,
+			rupiah = number_string.substr(0, sisa),
+			ribuan = number_string.substr(sisa).match(/\d{3}/g);
+
+		if (rupiah) {
+			rupiah += '.';
+		}
+
+		rupiah += ribuan.join('.');
+		return 'Rp ' + rupiah;
+	};
+
 	render() {
 		return `
 			<div class="card h-100">
 				<img class="img-fluid" id="img-car" src="${this.image}" alt="${this.manufacture}" />
 				<div class="card-body">
 					<h2 class="card-title fw-bold" id="car-name">${this.manufacture} ${this.model}/${this.type}</h2>
-					<h4 class="card-sub-title fw-bold" id="car-rent">Rp. ${this.rentPerDay} / hari</h4>
+					<h4 class="card-sub-title fw-bold" id="car-rent">${this.formatRupiah(this.rentPerDay)} / hari</h4>
 					<p class="card-text">${this.description}</p>
 					<ul class="list-group car-list">
 						<li class="list-group-item">👥${this.capacity} Orang</li>
