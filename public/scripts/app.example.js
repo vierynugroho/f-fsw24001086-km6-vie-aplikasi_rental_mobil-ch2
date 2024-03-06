@@ -26,9 +26,6 @@ class App {
 
 	async load() {
 		const cars = await Binar.listCars();
-		// const cars = await Binar.listCars(() => {
-		// 	return (car) => car.manufacture === 'BMW';
-		// });
 		Car.init(cars);
 	}
 

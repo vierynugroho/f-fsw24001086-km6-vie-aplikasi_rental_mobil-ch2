@@ -231,60 +231,57 @@
 								<div class="col-6 col-md-3">
 									<div class="mb-3">
 										<label
-											for="tipe_driver"
+											for="driverType"
 											class="form-label"
 											>Tipe Driver</label
 										>
 										<select
-											class="form-select form-select-lg"
-											name="tipe_driver"
-											id="tipe_driver"
+											class="form-select"
+											id="driverType"
 										>
 											<option
-												selected
 												hidden
+												value=""
 											>
 												Pilih Tipe Driver
 											</option>
-											<option>Dengan Supir</option>
-											<option>Tanpa Supir (Lepas Kunci)</option>
+											<option value="dengan supir">Dengan Supir</option>
+											<option value="tanpa supir">Tanpa Supir (Lepas Kunci)</option>
 										</select>
 									</div>
 								</div>
 								<div class="col-6 col-md-3">
 									<div class="mb-3">
 										<label
-											for="tanggal"
+											for="date"
 											class="form-label"
 											>Tanggal</label
 										>
 										<input
 											type="date"
 											class="form-control"
-											name="tanggal"
-											id="tanggal"
+											id="date"
 										/>
 									</div>
 								</div>
 								<div class="col-6 col-md-3">
 									<div class="mb-3">
 										<label
-											for="waktu_ambil"
+											for="pickUpTime"
 											class="form-label"
 											>Waktu Jemput/Ambil</label
 										>
 										<input
 											type="time"
 											class="form-control"
-											name="waktu_ambil"
-											id="waktu_ambil"
+											id="pickUpTime"
 										/>
 									</div>
 								</div>
 								<div class="col-6 col-md-3">
 									<div class="mb-3">
 										<label
-											for="waktu_ambil"
+											for="totalPassenger"
 											class="form-label"
 											>Jumlah Penumpang</label
 										>
@@ -295,6 +292,7 @@
 												placeholder="Jumlah Penumpang"
 												aria-label="Jumlah Penumpang"
 												aria-describedby="addon-wrapping"
+												id="totalPassenger"
 											/>
 											<span
 												class="input-group-text"
@@ -312,7 +310,7 @@
 									<button
 										class="nav-link py-2 px-2 rounded success-color text-white fw-bold text-center"
 										type="submit"
-										id="btn_cari_mobil"
+										id="btnCariMobil"
 									>
 										Cari Mobil
 									</button>
@@ -324,7 +322,7 @@
 			</div>
 			<div
 				id="cars-container"
-				class="row p-3 shadow-lg container position-relative w-75 mx-auto d-flex justify-content-evenly align-items-center"
+				class="row p-3 shadow-lg container position-relative w-75 mx-auto d-flex justify-content-evenly"
 			></div>
 			<footer class="my-5 position-relative">
 				<div class="container">

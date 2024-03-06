@@ -35,17 +35,10 @@ class Binar {
 		}
 
 		if (filterer instanceof Function) {
-			console.log('Filtered');
-			console.log(filterer);
-			//! output filterer
-			// () => {
-			// 	return (car) => car.manufacture === 'BMW';
-			// }
-
+			console.log('filtered');
+			// console.log(filterer);
 			return cars.filter(filterer);
 		}
-
-		console.log(cars);
 		return cars;
 	}
 }
