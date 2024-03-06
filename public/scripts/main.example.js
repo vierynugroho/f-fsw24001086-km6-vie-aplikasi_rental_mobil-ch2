@@ -25,9 +25,19 @@ btn_submit.addEventListener('click', () => {
 	let pick_up_time = document.getElementById('pickUpTime').value;
 	let total_passenger = document.getElementById('totalPassenger').value;
 
-	// let filteredCars = (car) => {
-	// 	return car.type === driver_type || car.date === date || car.pick_up_time === pick_up_time || car.capacity === total_passenger;
-	// };
+	//! Validation empty input
+	if (date == '' && pick_up_time == '' && total_passenger == '') {
+		const app = new App();
+		app.clear();
+		app.init().then(app.run);
+		return;
+	}
+
+	//! validation type driver
+	// if (driver_type === undefined || driver_type == '') {
+	// 	alert('Silahkan Pilih Tipe Driver');
+	// 	return;
+	// }
 
 	let filteredCars = (car) => car.capacity == total_passenger;
 
