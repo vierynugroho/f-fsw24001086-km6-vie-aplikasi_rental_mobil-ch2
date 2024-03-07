@@ -42,23 +42,24 @@ btn_submit.addEventListener('click', () => {
 	btn_submit.innerText = 'Edit';
 
 	//! VALIDATION INPUT
-	//TODO: if total_passenger is empty
-	if (total_passenger == '') total_passenger = 0;
-
-	//TODO: if date or pick up time is empty
-	if (date == '' || date == null) {
-		alert('Masukkan Tanggal Pengambilan Mobil!');
-		return;
-	} else if (pick_up_time == '' || pick_up_time == null) {
-		alert('Masukkan Jam Pengambilan Mobil!');
-	}
-
 	//TODO: all input is empty
 	if (date == '' && pick_up_time == '' && total_passenger == '0') {
 		const app = new App();
 		app.init().then(app.run);
 		return;
 	}
+
+	//TODO: date or pick up time is empty
+	if (date != '' && pick_up_time == '') {
+		alert('Masukkan  Waktu Pengambilan Mobil!');
+		return;
+	} else if (pick_up_time != '' && date == '') {
+		alert('Masukkan Tanggal Pengambilan Mobil!');
+		return;
+	}
+
+	//TODO: total_passenger is empty
+	if (total_passenger == '') total_passenger = 0;
 
 	//! VALIDATION FILTER
 	let filteredCars;
