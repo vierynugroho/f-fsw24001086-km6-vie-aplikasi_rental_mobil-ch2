@@ -2,7 +2,9 @@ class Car {
 	static list = [];
 
 	static init(cars) {
+		//! SORT ASC
 		cars.sort((a, b) => a.capacity - b.capacity);
+
 		this.list = cars.map((i) => new this(i));
 	}
 
@@ -24,6 +26,7 @@ class Car {
 		this.availableAt = availableAt;
 	}
 
+	//! NUMBER FORMAT
 	formatRupiah = (angka) => {
 		let number_string = angka.toString(),
 			sisa = number_string.length % 3,

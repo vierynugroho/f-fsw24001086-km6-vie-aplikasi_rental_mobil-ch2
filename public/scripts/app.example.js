@@ -23,6 +23,8 @@ class App {
 		} else {
 			Car.list.forEach((car) => {
 				const node = document.createElement('div');
+
+				//! ADD CLASS FOR UI
 				node.classList.add('col-12');
 				node.classList.add('col-lg-4');
 				node.classList.add('col-md-6');
