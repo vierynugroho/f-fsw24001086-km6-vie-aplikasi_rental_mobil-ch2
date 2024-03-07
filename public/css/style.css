@@ -137,14 +137,14 @@ ul#list_service {
 
 /* ------------- CARI MOBIL --------------*/
 
-option,
 option[hidden],
 .form-select-lg {
     font-size: 12px !important;
 }
 
-option {
-    padding: 10px 11px 10px 11px !important;
+
+#pickUpTime option {
+    /*  */
 }
 
 #cari_mobil_container {
