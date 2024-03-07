@@ -15,10 +15,17 @@ h1 {
 /* custom color */
 .success-color {
     background-color: #5cb85f;
+    color: white !important;
 }
 
 .primary-color {
     background-color: #0d28a6;
+    color: white !important
+}
+
+.primary-outline {
+    border: #0d28a6 1px solid;
+    color: #0d28a6 !important;
 }
 
 
@@ -176,5 +183,9 @@ button {
     background-position: center;
     background-repeat: no-repeat;
     height: 222px;
-    width: 303px;
+    width: 100%;
+}
+
+#btnCariMobil {
+    margin-top: 10px;
 }

@@ -22,13 +22,27 @@ btn_submit.addEventListener('click', () => {
 	// filter data
 	let driver_type = document.getElementById('driverType').value;
 	let date = document.getElementById('date').value; // 2024 - 03 - 13;
-	let pick_up_time = document.getElementById('pickUpTime').value; // 00:00 (default)
+	let pick_up_time = document.getElementById('pickUpTime').value; // 00:00
 	let total_passenger = document.getElementById('totalPassenger').value;
 
 	filter_dateTime = new Date(`${date} ${pick_up_time}`);
 
+	//! change UI button to edit button
+	btn_submit.classList.replace('success-color', 'primary-outline');
+	btn_submit.innerText = 'Edit';
+
 	//! Validation empty input
-	if ((date == '' && pick_up_time == '') || total_passenger == '') {
+	//TODO: if total_passenger is empty
+	if (total_passenger == '') total_passenger = 0;
+
+	//TODO: if pick up time is empty
+	if (date != '' && pick_up_time == '') {
+		alert('Masukkan Jam Pengambilan Mobil!');
+		return;
+	}
+
+	//TODO: all input is empty
+	if (date == '' && pick_up_time == '' && total_passenger == '0') {
 		const app = new App();
 		app.init().then(app.run);
 		return;
@@ -41,25 +55,31 @@ btn_submit.addEventListener('click', () => {
 	// 	return;
 	// }
 
+	console.log(total_passenger);
+
 	//! Validation Filter
 	let filteredCars;
 	if (total_passenger == '' || total_passenger == null) {
+		console.log('atas');
 		filteredCars = (car) => car.availableAt <= filter_dateTime && car.available === true;
 	} else {
+		console.log('bawah');
 		filteredCars = (car) => car.capacity >= total_passenger && car.available === true;
 	}
 
-	//! Log Hasil
+	//! Log Hasil Pilih Mobil
 	console.log('Driver Type: ' + driver_type);
 	console.log('Tanggal: ' + date);
 	console.log('Waktu Ambil: ' + pick_up_time);
 	console.log('Jumlah Penumpang: ' + total_passenger);
 
+	//! get filtered cars
 	async function getCarsFiltered() {
 		const data = await Binar.listCars(filteredCars);
 		return data;
 	}
 
+	//! exc filtered cars
 	getCarsFiltered().then((carsFiltered) => {
 		console.log(carsFiltered);
 		const app = new App();
@@ -67,10 +87,3 @@ btn_submit.addEventListener('click', () => {
 		app.run();
 	});
 });
-
-/*
- * Contoh penggunaan DOM di dalam class
- * */
-const app = new App();
-
-app.init().then(app.run);

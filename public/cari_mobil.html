@@ -120,7 +120,7 @@
 								</li>
 								<li class="nav-item">
 									<a
-										class="nav-link py-2 px-2 rounded-1 success-color text-white fw-bold w-50 text-center"
+										class="nav-link py-2 px-2 rounded-1 success-color fw-bold w-50 text-center"
 										href="#"
 										>Register</a
 									>
@@ -166,7 +166,7 @@
 							</li>
 							<li class="nav-item">
 								<a
-									class="nav-link py-2 px-4 rounded-1 success-color text-white fw-bold"
+									class="nav-link py-2 px-4 rounded-1 success-color fw-bold"
 									href="#"
 									>Register</a
 								>
@@ -275,7 +275,6 @@
 											type="time"
 											class="form-control"
 											id="pickUpTime"
-											value="00:00"
 										/>
 									</div>
 								</div>
@@ -293,6 +292,8 @@
 												placeholder="Jumlah Penumpang"
 												aria-label="Jumlah Penumpang"
 												aria-describedby="addon-wrapping"
+												min="0"
+												value="0"
 												id="totalPassenger"
 											/>
 											<span
@@ -308,11 +309,11 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-12 col-md-2 d-flex justify-content-start align-items-center">
+						<div class="col-12 col-md-2 d-flex justify-content-end align-items-center">
 							<div class="row w-100">
 								<div class="col-12">
 									<button
-										class="nav-link py-2 px-2 rounded success-color text-white fw-bold text-center"
+										class="w-100 mx-end nav-link py-2 px-2 rounded success-color fw-bold text-center"
 										type="submit"
 										id="btnCariMobil"
 									>
@@ -453,8 +454,8 @@
 				</div>
 			</footer>
 		</main>
-		<button id="load-btn">Load</button>
-		<button id="clear-btn">Clear</button>
+		<!-- <button id="load-btn">Load</button> -->
+		<!-- <button id="clear-btn">Clear</button> -->
 		<!-- <div id="cars-container"></div> -->
 
 		<!--! BOOTSTRAP -->

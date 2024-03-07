@@ -2,6 +2,7 @@ class Car {
 	static list = [];
 
 	static init(cars) {
+		cars.sort((a, b) => a.capacity - b.capacity);
 		this.list = cars.map((i) => new this(i));
 	}
 
@@ -39,19 +40,22 @@ class Car {
 
 	render() {
 		return `
-			<div class="card h-100">
+			<div class="card h-100" id="card-car">
 				<img class="img-fluid" id="img-car" src="${this.image}" alt="${this.manufacture}" />
 				<div class="card-body">
 					<h2 class="card-title fw-bold" id="car-name">${this.manufacture} ${this.model}/${this.type}</h2>
 					<h4 class="card-sub-title fw-bold" id="car-rent">${this.formatRupiah(this.rentPerDay)} / hari</h4>
 					<p class="card-text">${this.description}</p>
 					<ul class="list-group car-list">
-						<li class="list-group-item">👥${this.capacity} Orang</li>
-						<li class="list-group-item">⚙ ${this.transmission}</li>
-						<li class="list-group-item">📅 Tahun ${this.year}</li>
+						<li class="list-group-item"><i><img src="./images/fi_passenger.svg" alt="user-icon" /></i> ${this.capacity}
+							Orang</li>
+						<li class="list-group-item"><i><img src="./images/fi_settings.svg" alt="user-icon" /></i> ${this.transmission}</li>
+						<li class="list-group-item"><i><img src="./images/fi_calendar.svg" alt="user-icon" /></i> Tahun
+							${this.year}</li>
 					</ul>
 				</div>
-				<a href="${this.id}" class="d-block w-100 py-2 nav-link success-color text-white fw-bold text-center">Pilih
+				<a href="cars?id=${this.id}"
+					class="d-block w-100 py-2 nav-link success-color text-white fw-bold text-center">Pilih
 					Mobil</a>
 			</div>
     `;

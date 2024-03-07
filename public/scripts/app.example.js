@@ -1,16 +1,16 @@
 class App {
 	constructor() {
-		this.clearButton = document.getElementById('clear-btn');
-		this.loadButton = document.getElementById('load-btn');
+		// this.clearButton = document.getElementById('clear-btn');
+		// this.loadButton = document.getElementById('load-btn');
 		this.carContainerElement = document.getElementById('cars-container');
 	}
 
 	async init() {
 		await this.load();
 
-		// Register click listener
-		this.clearButton.onclick = this.clear;
-		this.loadButton.onclick = this.run;
+		//! Register click listener
+		// this.clearButton.onclick = this.clear;
+		// this.loadButton.onclick = this.run;
 	}
 
 	run = () => {
@@ -24,7 +24,8 @@ class App {
 			Car.list.forEach((car) => {
 				const node = document.createElement('div');
 				node.classList.add('col-12');
-				node.classList.add('col-md-4');
+				node.classList.add('col-lg-4');
+				node.classList.add('col-md-6');
 				node.classList.add('mt-3');
 				node.innerHTML = car.render();
 				this.carContainerElement.appendChild(node);

@@ -37,6 +37,8 @@ class Binar {
 		if (filterer instanceof Function) {
 			console.log('filtered');
 			// console.log(filterer);
+
+			//! fitler cars by condition and sort cars by capacity
 			return cars.filter(filterer);
 		}
 		return cars;
