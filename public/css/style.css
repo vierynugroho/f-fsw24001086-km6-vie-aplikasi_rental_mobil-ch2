@@ -137,14 +137,27 @@ ul#list_service {
 
 /* ------------- CARI MOBIL --------------*/
 
-option[hidden],
-.form-select-lg {
+select option {
     font-size: 12px !important;
 }
 
+.form-control:focus,
+.form-select:focus {
+    border-color: #5CB85F !important;
+}
 
-#pickUpTime option {
-    /*  */
+
+.form-select#driverType option,
+.form-select#pickUpTime option {
+    font-weight: bold;
+}
+
+.form-select#driverType option:hover,
+.form-select#driverType option:checked,
+.form-select#pickUpTime option:hover,
+.form-select#pickUpTime option:checked {
+    background: #C9E7CA !important;
+    color: #5CB85F !important;
 }
 
 #cari_mobil_container {
@@ -188,4 +201,8 @@ button {
 
 #btnCariMobil {
     margin-top: 10px;
+}
+
+.form-select#pickUpTime {
+    background-image: url('../images/fi_clock.svg') !important;
 }
