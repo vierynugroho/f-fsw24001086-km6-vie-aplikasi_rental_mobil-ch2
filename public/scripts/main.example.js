@@ -42,8 +42,12 @@ btn_submit.addEventListener('click', () => {
 	btn_submit.innerText = 'Edit';
 
 	//! VALIDATION INPUT
+	//TODO: total_passenger is empty
+	if (total_passenger == '') total_passenger = 0;
+
 	//TODO: all input is empty
 	if (date == '' && pick_up_time == '' && total_passenger == '0') {
+		console.log('empty input');
 		const app = new App();
 		app.init().then(app.run);
 		return;
@@ -57,9 +61,6 @@ btn_submit.addEventListener('click', () => {
 		alert('Masukkan Tanggal Pengambilan Mobil!');
 		return;
 	}
-
-	//TODO: total_passenger is empty
-	if (total_passenger == '') total_passenger = 0;
 
 	//! VALIDATION FILTER
 	let filteredCars;
