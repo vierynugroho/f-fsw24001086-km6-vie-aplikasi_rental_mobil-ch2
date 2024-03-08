@@ -43,10 +43,10 @@ class Car {
 
 	render() {
 		return `
-			<div class="card h-100" id="card-car">
-				<img class="img-fluid" id="img-car" src="${this.image}" alt="${this.manufacture}" />
-				<div class="card-body">
-					<h2 class="card-title fw-bold" id="car-name">${this.manufacture} ${this.model}/${this.type}</h2>
+			<div class="card border-0 h-100" id="card-car">
+			<div class="card-body h-100">
+			<img class="img-fluid" id="img-car" src="${this.image}" alt="${this.manufacture}" />
+					<h2 class="card-title fw-bold pt-2" id="car-name">${this.manufacture} ${this.model}/${this.type}</h2>
 					<h4 class="card-sub-title fw-bold" id="car-rent">${this.formatRupiah(this.rentPerDay)} / hari</h4>
 					<p class="card-text">${this.description}</p>
 					<ul class="list-group car-list">
@@ -57,9 +57,11 @@ class Car {
 							${this.year}</li>
 					</ul>
 				</div>
+				<div class="card-footer border-0">
 				<a href="cars?id=${this.id}"
-					class="d-block w-100 py-2 nav-link success-color text-white fw-bold text-center">Pilih
-					Mobil</a>
+						class="d-block w-100 py-2 nav-link success-color text-white fw-bold text-center">Pilih
+						Mobil</a>
+				</div>
 			</div>
     `;
 	}

@@ -21,6 +21,10 @@ let params_totalPassenger = params.totalPassenger;
 let btn_submit = document.getElementById('btnCariMobil');
 
 btn_submit.addEventListener('click', () => {
+	//! CARS CONTAINER
+	let cars_container = document.getElementById('cars-container');
+	cars_container.classList.remove('d-none');
+
 	//? FILTER DATA
 	let driver_type = document.getElementById('driverType').value;
 	let date = document.getElementById('date').value; // 2024 - 03 - 13;
@@ -47,7 +51,7 @@ btn_submit.addEventListener('click', () => {
 
 	//TODO: all input is empty
 	if (date == '' && pick_up_time == '' && total_passenger == '0') {
-		console.log('empty input');
+		console.log('empty input!');
 		const app = new App();
 		app.init().then(app.run);
 		return;

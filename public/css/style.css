@@ -171,12 +171,20 @@ button {
     margin: unset;
 }
 
+#card-car {
+    box-shadow: 0px 0px 4px 0px #00000026 !important;
+}
+
+#cars-container .col-lg-3 {
+    width: 30% !important;
+}
+
 #btn_cari_mobil:hover {
     background-color: #17831b;
 }
 
 #cars-container {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 #car-name {

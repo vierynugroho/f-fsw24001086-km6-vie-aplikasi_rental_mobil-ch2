@@ -25,10 +25,7 @@ class App {
 				const node = document.createElement('div');
 
 				//! ADD CLASS FOR UI
-				node.classList.add('col-12');
-				node.classList.add('col-lg-4');
-				node.classList.add('col-md-6');
-				node.classList.add('mt-3');
+				node.classList.add('col-12', 'col-lg-3', 'col-md-6', 'mt-3');
 				node.innerHTML = car.render();
 				this.carContainerElement.appendChild(node);
 			});
