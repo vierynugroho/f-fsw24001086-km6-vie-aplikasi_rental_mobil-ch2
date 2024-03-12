@@ -27,6 +27,11 @@ app.get('/cars', (req, res) => {
 	res.sendFile(path.join(__dirname, '../public', 'cari_mobil.html'));
 });
 
+// if url not found
+app.use((req, res) => {
+	res.status(404).send('404 - Halaman tidak ditemukan');
+});
+
 app.listen(PORT, () => {
 	console.log('Express API running in http://localhost:' + PORT);
 });

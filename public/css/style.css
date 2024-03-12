@@ -137,6 +137,7 @@ ul#list_service {
 
 /* ------------- CARI MOBIL --------------*/
 
+select option[placeholder],
 select option {
     font-size: 12px !important;
 }
@@ -150,6 +151,7 @@ select option {
 .form-select#driverType option,
 .form-select#pickUpTime option {
     font-weight: bold;
+    line-height: 10px;
 }
 
 .form-select#driverType option:hover,
